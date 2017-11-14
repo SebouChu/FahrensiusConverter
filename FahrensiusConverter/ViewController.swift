@@ -95,11 +95,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return true
     }
     
-    
     // MARK: Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set current ViewController as delegate of textField
+        userValueField.delegate = self
         
         // Set current ViewController as delegate & data source of the directionPicker
         userDirectionPicker.delegate = self

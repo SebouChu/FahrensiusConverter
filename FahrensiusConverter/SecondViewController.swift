@@ -29,6 +29,15 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         processConversion()
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     // MARK: Conversion Methods
     
     func processConversion() {
@@ -76,6 +85,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Assigne le contrôleur actuel en tant que delegate du champ de texte
+        userValueField.delegate = self
         // Ajoute une méthode appelée à chaque fois que la valeur du champ change
         userValueField.addTarget(self, action: #selector(userValueDidChange(_:)), for: .editingChanged)
         
