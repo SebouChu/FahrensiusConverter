@@ -10,8 +10,6 @@ import UIKit
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
-    
-    
     // MARK: Outlets
     
     @IBOutlet weak var userValueField: UITextField!
@@ -35,6 +33,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func processConversion() {
         guard let userValue = Float(userValueField.text!) else {
+            // Vérifie si l'utilisateur a entré quelque chose ou si le champ est vide
             if userValueField.text == "" {
                 resultLabel.text = "Pas de valeur entrée."
             } else {
@@ -77,7 +76,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Ajoute une méthode appelée à chaque fois que la valeur du champ change
         userValueField.addTarget(self, action: #selector(userValueDidChange(_:)), for: .editingChanged)
         
         // Set border to result UIView

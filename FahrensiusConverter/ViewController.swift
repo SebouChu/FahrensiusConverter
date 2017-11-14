@@ -27,7 +27,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Vérifie que la valeur entrée est un nombre décimal
         guard let userValue = Float(userValueField.text!) else {
-            resultLabel.text = "Valeur incorrecte."
+            // Vérifie si le champ est vide ou non
+            if userValueField.text == "" {
+                resultLabel.text = "Pas de valeur entrée."
+            } else {
+                resultLabel.text = "Valeur incorrecte."
+            }
             return
         }
         
